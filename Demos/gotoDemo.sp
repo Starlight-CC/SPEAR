@@ -3,6 +3,7 @@ goto "hi"
 prv int A = 11
 A = A--
 if A ~= 0 do
+  print("A is "..tonum(A))
   goto 4
 end
 goto 11
