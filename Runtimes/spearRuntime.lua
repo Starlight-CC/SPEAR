@@ -47,21 +47,7 @@ Operations={
     N=function() return nil end
 }
 --0 is name
---1 is num
---2 is str
---3 is func
---4 is tbl
---5 is list
---7 is bool
---8 is do
---9 is end
---10 is arg
---11 is (
---12 is )
---13 is none
---14 is none
---15 is none
+--tbl is a numbered arg
+--1 unnumbered arg
 modes={
-    1={0,11,10,12},
-    2={0,7,7,8,}
 }
