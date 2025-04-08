@@ -1,11 +1,12 @@
-local config = {
-    TOC = 100
-}
-local PC = 1
-local vars = {}
-local nums = {"1","2","3","4","5","6","7","8","9","0"}
-local chars = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 local SPEAR = {
+    config={
+        TOC=100
+    },
+    PC=1,
+    vars={},
+    nums={"1","2","3","4","5","6","7","8","9","0"},
+    chars={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"},
+    operators={"true","false","==","~=",">","<","<=",">=","+","-","*","/","++","--"},
     syntax={
         {name="print",mode={}},
         {name="do",mode={}},
@@ -38,15 +39,8 @@ local SPEAR = {
         {name="pub",mode=function() return SPEAR.copy("private") end}
     },
     Operations={
-        add=nil,
-        sub=nil,
-        multiply=nil,
-        divide=nil,
-        isEqual=nil,
-        isNotEqual=nil,
-        isGreaterThan=nil,
-        isLessThan=nil,
-        addOne=nil,
-        subOne=nil,
+        T=true,
+        F=false,
+        
     }
 }
