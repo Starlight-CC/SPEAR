@@ -1,4 +1,3 @@
-// Goto demo
 print("goto Demo") // Prints string to Standard output
 goto "hi" // Jump to a flag.
 prv int A = 11 // Declare "A" as a private integer

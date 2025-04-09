@@ -12,8 +12,26 @@ local static={"true","false","nil"}
 local syntax={
     ["goto"] = {
         call=function(...)
-            args = {...}
-            if type(args[1]) == 
+            local args = {...}
+            local val = args[1]
+            if type(val) == "string" then
+                if isin(val,gotoFlags) then
+                    PC = gotoFlags[val]
+                end
+            elseif type(val) == "number" then
+                PC = val
+            else
+                error("invalid arg at line \""..tostring(PC).."\"")
+            end
+        end,
+        index=function(...)
+            local args = {...}
+            local val = args[1]
+            if type(val) == "string" then
+                return gotoFlags[val]
+            else
+                error("invalid arg at line \""..tostring(PC).."\"")
+            end
         end
     },
 }
