@@ -73,7 +73,7 @@ local syntax={
                         ["type"]=varType,
                         ["value"]=val
                     }
-                    lookup
+                    lookup[nameSpace] = varType
                 else
                     error("error on line"..tostring(PC))
                 end
@@ -125,6 +125,7 @@ while true do
             break
         else
             i = i + 1
+            subString = Line.sub(1,i)
         end
     end
-    
+    parse(args)
