@@ -55,6 +55,8 @@ local syntax={
                     ["type"]=varType,
                     ["value"]=val
                 }
+            else
+                error("value out of range")
             end
         end
     }
