@@ -93,21 +93,25 @@ local syntax={
     }
 }
 function canFit(value,varType)
-    if type(value) == "number" then
-        if varType == "byte" then
-            if -1<value<256 && not hasDec(val) then
-                return true
-            else
-                return false
-            end
-        elseif varType == "sbyte" then
-            if -129<value<128 && not hasDec(val) then
-                return true
-            else
-                return false
-            end
-        elseif varType == "short" then
-            e
+    if type(value) == "number" && not hasDec(val) then
+        if varType == "byte" && -1<value<256 then
+            return true
+        elseif varType == "sbyte" && -129<value<128 then
+            return true
+        elseif varType == "ushort" && -1<value<65536 then
+            return true
+        elseif varType == "short" && -32769<value<32768 then
+            return true
+        elseif varType == "uint" && -1<value<4294967296 then
+            return true
+        elseif varType == "int" && -2147483649<value<2147483648 then
+            return true
+        elseif varType == "ulong" && -1<value<18446744073709551616 then
+            return true
+        elseif varType == "long" && -9223372036854775809<value<9223372036854775808 then
+            return true
+        end
+    elseif type(value) == "number" then
 function isin(item,list,iorv)
     for i,v in ipairs(list) do
         if iorv then
