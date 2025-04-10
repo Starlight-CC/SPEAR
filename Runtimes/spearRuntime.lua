@@ -93,25 +93,31 @@ local syntax={
     }
 }
 function canFit(value,varType)
-    if type(value) == "number" && not hasDec(val) then
-        if varType == "byte" && -1<value<256 then
+    if type(value) == "number" and not hasDec(val) then
+        if varType == "byte" and -1<value<256 then
             return true
-        elseif varType == "sbyte" && -129<value<128 then
+        elseif varType == "sbyte" and -129<value<128 then
             return true
-        elseif varType == "ushort" && -1<value<65536 then
+        elseif varType == "ushort" and -1<value<65536 then
             return true
-        elseif varType == "short" && -32769<value<32768 then
+        elseif varType == "short" and -32769<value<32768 then
             return true
-        elseif varType == "uint" && -1<value<4294967296 then
+        elseif varType == "uint" and -1<value<4294967296 then
             return true
-        elseif varType == "int" && -2147483649<value<2147483648 then
+        elseif varType == "int" and -2147483649<value<2147483648 then
             return true
-        elseif varType == "ulong" && -1<value<18446744073709551616 then
+        elseif varType == "ulong" and -1<value<18446744073709551616 then
             return true
-        elseif varType == "long" && -9223372036854775809<value<9223372036854775808 then
+        elseif varType == "long" and -9223372036854775809<value<9223372036854775808 then
             return true
         end
-    elseif type(value) == "number" then
+    end
+    if type(value) == "number" then
+        if varType == "float" then
+            return true
+        end
+    end
+end
 function isin(item,list,iorv)
     for i,v in ipairs(list) do
         if iorv then
