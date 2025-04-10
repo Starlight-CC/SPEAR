@@ -92,6 +92,10 @@ local syntax={
         end
     }
 }
+function canFit(value,varType)
+    if varType == "byte" then
+        if -1<value<256 then
+            math
 function isin(item,list,iorv)
     for i,v in ipairs(list) do
         if iorv then
@@ -119,13 +123,14 @@ while true do
     Line = PCode[PC]
     local i = 1
     local subString = ""
+    local command = ""
     while true do
-        if isin(subString,lookup) then
-            local command = subString
+        if isin(subString,lookup,true) then
+            command = subString
             break
         else
             i = i + 1
             subString = Line.sub(1,i)
         end
     end
-    parse(args)
+    parse(Line.sub(i+1,#Line))
