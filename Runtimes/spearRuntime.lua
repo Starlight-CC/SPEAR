@@ -34,4 +34,28 @@ local syntax={
             end
         end
     },
+    ["print"]={
+        call=function(...)
+            local args={...}
+            local str = ""
+            for i,v in ipairs(args) do
+                str = str..tostring(v)
+            end
+            print(str)
+        end
+    },
+    ["private"]={
+        set=function(...)
+            local args={...}
+            local varType = args[1]
+            local nameSpace = args[2]
+            local val = eval(args,4)
+            if canFit(val,varType) then
+                vars[nameSpace] = {
+                    ["type"]=varType,
+                    ["value"]=val
+                }
+            end
+        end
+    }
 }
