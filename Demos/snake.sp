@@ -1,6 +1,6 @@
 namespace SpearSnakeDemo;
 private func snake(){
-    from OpenGL import 2D,Color24;
+    from Graphics import 2D,Color24;
     from OpenWin import Graphics;
     from arrays inport array2;
     prv class C24=Color24.create;
@@ -11,8 +11,8 @@ private func snake(){
     window.keepResolutionOnRescale(true);
     window.show();
     prv tbl pixels=array2.new(100,50);
-    window.pixArray();
-    
+    window.pixArray:pixels;
+    2D.
 }
 public func main(){
     snake()
