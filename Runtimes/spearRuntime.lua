@@ -19,6 +19,7 @@ local syntax={
         sudoset, self "args"
         call, self(args)
         index, self[args]
+        tindex, self{args}
     } ]=]
     ["goto"] = {
         call=function(...)
@@ -72,7 +73,7 @@ local syntax={
             local args = {...}
             local varType = args[1]
             local nameSpace = args[2]
-            local val = eval(args,4)
+            local val = parse(args,4)
             if not isin(nameSpace,syntax) then
                 if canFit(val,varType) then
                     vars.private[nameSpace] = {
@@ -107,6 +108,9 @@ local syntax={
         end
     }
 }
+function eval(table,start)
+    
+end
 function canFit(value,varType)
     return true
 end
