@@ -38,6 +38,12 @@ public class Graphics{
         public function array(input){
             pixels=input;
         };
-        
+        public function line(x1,y1,x2,y2,c){
+            private ushort ax,ay = pixels[1],pixels[2];
+            private ushort dx,dy = x1-x2,y1-y2;
+            private ushort it,i = 0,0;
+            while(y-y1=y2-y1/x2-x1*x-x1~=)
+            
+        }
     }
 }
