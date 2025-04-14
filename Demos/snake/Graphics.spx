@@ -1,0 +1,8 @@
+_#!Exec c# = {};
+_#!Exec lua = {
+    #!/bin/lua
+    if CC then
+        if CraftOS then
+            
+};
+_GETRAW()
