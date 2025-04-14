@@ -21,16 +21,21 @@ _#!Exec lua = {
 };
 private class API,APItype _GETExec()
 public class Graphics{
-    public class Color24(){
+    public function Color24(){
         metadata("new"){
             args = {...};
             return args[1]*65536+args[2]*256+args[3];
         };
     };
-    public class Color32(){
+    public function Color32(){
         metadata("new"){
             args = {...};
             return args[1]*16777216+args[2]*65536+args[3]*256+args[4];
         };
     };
+    public class 2D{
+        private table pixels = {}
+        public function array(input){
+            pixels=input;
+    }
 }
