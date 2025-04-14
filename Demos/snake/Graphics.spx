@@ -1,8 +1,36 @@
+namespace Lib;
 _#!Exec c# = {};
 _#!Exec lua = {
     #!/bin/lua
-    if CC then
-        if CraftOS then
-            
+    local enviroment = "lua"
+    if _CC then
+        enviroment = "CC"
+        if _CraftOS then
+            enviroment = "CraftOSPC"
+        end
+    end
+    if enviroment == "lua" then
+        error("Not implemented")
+    elseif enviroment == "CC" then
+        error("Not implemented")
+    elseif enviroment == "CraftOSPC" then
+        return term,3
+    else
+        error("Enviroment not found")
+    end
 };
-_GETRAW()
+private class API,APItype _GETExec()
+public class Graphics{
+    public class Color24(){
+        metadata("new"){
+            args = {...};
+            return args[1]*65536+args[2]*256+args[3];
+        };
+    };
+    public class Color32(){
+        metadata("new"){
+            args = {...};
+            return args[1]*16777216+args[2]*65536+args[3]*256+args[4];
+        };
+    };
+}

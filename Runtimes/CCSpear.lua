@@ -28,11 +28,13 @@ local TO = 0 -- clock iterations
 local startupArgs = {...}
 -- Make syntax
 --[=[Key
+    new, 
     set, self = args
     sudoset, Self args
     call, self(args)
     index, self[args]
-    tindex, self{args}
+    class, self{}
+    dec, self(args[1]){args[2]}
 ]=]
 local syntax = {
 
