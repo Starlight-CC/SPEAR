@@ -34,8 +34,10 @@ public class Graphics{
         };
     };
     public class 2D{
-        private table pixels = {}
+        private table pixels = {};
         public function array(input){
             pixels=input;
+        };
+        
     }
 }
