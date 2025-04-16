@@ -1,26 +1,5 @@
 namespace Lib;
-from arrays import array;
-_#!Exec c# = {};
-_#!Exec lua = {
-    #!/bin/lua
-    local enviroment = "lua"
-    if _CC then
-        enviroment = "CC"
-        if _CraftOS then
-            enviroment = "CraftOSPC"
-        end
-    end
-    if enviroment == "lua" then
-        error("Not implemented")
-    elseif enviroment == "CC" then
-        error("Not implemented")
-    elseif enviroment == "CraftOSPC" then
-        return term,3
-    else
-        error("Enviroment not found")
-    end
-};
-private class API,APItype _GETExec()
+from arrays import array2Math,array2;
 public class Graphics{
     public function Color24(){
         metadata("new"){
@@ -35,13 +14,15 @@ public class Graphics{
         };
     };
     public class 2D{
-        private table pixels = {};
+        private table pixels = new array2(1,1);
         public function setPixelArray(input){
             pixels=input;
         };
         public function getPixel(x,y){
+            array2Math.get(pixels,x,y)
         };
         public function setPixel(x,y,c){
+            array2Math.set(pixels,x,y,c)
         };
         public function line(x1,y1,x2,y2,c){
             private float dy=math.abs(y2-y1)*-1;
