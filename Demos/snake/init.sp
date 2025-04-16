@@ -15,6 +15,4 @@ public function main(){
     link(Graphics.setPixelArray,pixels);
     window=new GraphicsDisplay(0,0,100,50,1,true)
     link(window.buffer,pixels)
-    if(true){code}else(true)
-    if(true){code}else{code2}
 }
