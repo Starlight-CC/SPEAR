@@ -34,10 +34,36 @@ local startupArgs = {...}
     call, self(args)
     index, self[args]
     class, self{}
-    dec, self(args[1]){args[2]}
+    dec, self(args[1]){args[2]}?else
 ]=]
 local syntax = {
-
+    ["if"]={
+        data={
+            length=2
+        }
+        dec=function(...)
+            args = {...}
+            if solve(args[1]) == true then
+                run(args[2])
+            elseif args[3] then
+                run(7)
+            end
+        end
+    },
+    ["else"]={
+        data={
+            length=4
+        }
+        dec=function(...)
+            args={...}
+            if solve(args[1]) == true then
+                run(args[2])
+            end
+        end,
+        class=function(...)
+            run(...)
+        end
+    }
 }
 -- Basic funcs
 local function isin(item,list,iorv) -- If item is in list
@@ -61,6 +87,16 @@ local function getLines(filename) -- Gets lines of a file
         lines[#lines+1] = line
     end
     return lines
+end
+local function join(...)
+    local args={...}
+    local ret={}
+    for _,v1 in ipairs(args) do
+        for i2,v2 in pairs(v1) do
+            ret[i2]=v2
+        end
+    end
+    return ret
 end
 -- Begin running code
 local Program = getLines(startupArgs[1])
